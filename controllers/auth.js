@@ -15,7 +15,7 @@ let transporter = nodemailer.createTransport(sendgridTransport({
 
   auth: {
 
-    api_key: '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'
+    api_key:
   }
 })
 );
@@ -157,14 +157,7 @@ exports.postSignup = async (req, res, next) => {
           req.flash('error', 'Welcome to Our Website');
 
           res.json({ error: req.flash('error') });
-          return transporter.sendMail({
-            to: email,
-            from: 'fajer335544@hotmail.com',
-            subject: 'Signup succeeded!',
-            html: '<h1>You successfully signed up!</h1>'
-          }).catch(err => {
-            console.error(err);
-          });
+         
         })
         .catch(err => {
           console.log(err);
@@ -237,7 +230,7 @@ exports.PostReset = (req, res, next) => {
 
       return transporter.sendMail({
         to: req.body.email,
-        from: 'fajer335544@hotmail.com',
+        from:    ,
         subject: 'Password reset',
         html: `  
         <h1> Fitness GYM </h1>
